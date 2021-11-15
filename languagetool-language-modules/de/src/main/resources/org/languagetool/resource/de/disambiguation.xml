@@ -5200,6 +5200,27 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
         <disambig action="ignore_spelling"/>
     </rule>
 
+    <rulegroup id="SUB_ADJ_PLU" name="Geschädigte → PLU">
+        <rule>
+            <pattern>
+                <and>
+                    <token postag="SUB:.*:ADJ" postag_regexp="yes" regexp="yes">.*e</token>
+                    <token postag="SUB:.*PLU.*" postag_regexp="yes" negate_pos="yes"/>
+                </and>
+            </pattern>
+            <disambig action="add"><wd pos="SUB:NOM:PLU:MAS:ADJ"/></disambig>
+        </rule>
+        <rule>
+            <pattern>
+                <and>
+                    <token postag="SUB:.*:ADJ" postag_regexp="yes" regexp="yes">.*e</token>
+                    <token postag="SUB:.*PLU.*" postag_regexp="yes" negate_pos="yes"/>
+                </and>
+            </pattern>
+            <disambig action="add"><wd pos="SUB:AKK:PLU:MAS:ADJ"/></disambig>
+        </rule>
+    </rulegroup>
+
     <!-- TODO: (ohne meine neue ..., durch eine alte ...)-->
     <!-- <rulegroup id="EINE_ARTIKEL" name="eine/meine als Artikel">
         <rule>
